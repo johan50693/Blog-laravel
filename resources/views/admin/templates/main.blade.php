@@ -12,9 +12,37 @@
 
 	<section>
 
-		@yield('content','')
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class=" panel-heading">
+							@yield ('title','')
+						</div>
+						<div class=" panel-body">
+							@yield('content','')
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 
 	</section>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<p> Mi Blog Derechos Reservados</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
 
 	<script src={{ asset('plugins/jquery/js/jquery-3.1.1.min.js') }} ></script>
 	<script src={{ asset('plugins/bootstrap/js/bootstrap.js') }} ></script>
