@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use Laracasts\Flash\Flash;
 
 class UsersController extends Controller
 {
@@ -47,7 +48,9 @@ class UsersController extends Controller
         $user->password=bcrypt($request->password);
         $user->save();
 
-        dd('El Usuario se ha creado exitosamente');
+        //Solucionar problema de leer el tipo de usuario
+        flash('Se ha Registrado a '.$user->name.' exitosamente', 'success');
+        return redirect('/admin/users');
     }
 
     /**
