@@ -35,7 +35,14 @@
 
 					</td>
 
-					<td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-primary"></a></td>
+					<td>
+						<a href="" class="btn btn-warning">
+							<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+						</a> 
+						<a href="{{ route('admin.users.destroy',$user->id) }}" class="btn btn-danger" onclick="return confirm('¿Desea Borrar este usuario?')">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</a>
+					</td>
 				</tr>
 			@endforeach
 		</tbody>
