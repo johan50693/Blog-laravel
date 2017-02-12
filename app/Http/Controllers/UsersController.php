@@ -44,9 +44,12 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {
         
-
+     //   dd($request->all());
         $user= new User($request->all());
         $user->password=bcrypt($request->password);
+        $user->type=$request->type;
+    //    dd($user->type);
+     //   dd($user->type);
         $user->save();
 
         //Solucionar problema de leer el tipo de usuario
