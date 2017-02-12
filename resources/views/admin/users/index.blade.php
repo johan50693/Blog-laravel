@@ -36,7 +36,7 @@
 					</td>
 
 					<td>
-						<a href="" class="btn btn-warning">
+						<a href="{{ url('admin/users/'.$user->id.'/'.'edit') }}" class="btn btn-warning">
 							<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 						</a> 
 						<a href="{{ route('admin.users.destroy',$user->id) }}" class="btn btn-danger" onclick="return confirm('¿Desea Borrar este usuario?')">
