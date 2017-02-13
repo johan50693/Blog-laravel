@@ -96,10 +96,11 @@ class UsersController extends Controller
        // dd($id);
       //dd($request->all());
         $user=User::find($id);
-        $user->name=$request->name;
+        $user->fill($request->all());
+    /*    $user->name=$request->name;
         $user->email=$request->email;
         $user->type=$request->type;
-        $user->save();
+    */  $user->save();
 
         flash('El usuario '.$user->name.' se ha editado exitosamente', 'success');
         return redirect('admin/users');
