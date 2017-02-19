@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ url('/')}}">Inicio</a></li>
         <li><a href="{{ url('admin/users')}}">Usuarios</a></li>
-        <li><a href="#">Categorias</a></li>
+        <li><a href="{{ url('admin/categories') }}">Categorias</a></li>
         <li><a href="#">Artículos</a></li>
         <li><a href="#">Imágenes</a></li>
         <li><a href="#">Tags</a></li>
