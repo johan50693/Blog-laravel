@@ -17,8 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        // REDIRECCIÓN CUANDO YA ESTOY LOGUEADO Y INTENTO LOGUEARME NUEVAMENTE
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect()->route('admin.welcome');
         }
 
         return $next($request);
