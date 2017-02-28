@@ -1,0 +1,12 @@
+
+
+return View('route')
+Al retornar una vista esta recibe como parámetro la ruta donde se encuentre dicha vista, siempre teniendo como
+raiz la carpeta "views".
+
+route('param')
+Al usar el comando route es necesario pasar el "nombre de la ruta" como parametro para que esta pueda cambiar la
+ruta, no funciona con la URI. 
+
+@extends('param')
+Los parámetros para los extends inician en la carpeta raiz views.

@@ -53,7 +53,7 @@ class UsersController extends Controller
         $user->save();
 
         //Solucionar problema de leer el tipo de usuario
-        flash('Se ha Registrado a '.$user->name.' exitosamente', 'success');
+        flash('Se ha Registrado a "'.$user->name.'" exitosamente', 'success');
         return redirect('/admin/users');
     }
 
@@ -102,7 +102,7 @@ class UsersController extends Controller
         $user->type=$request->type;
     */  $user->save();
 
-        flash('El usuario '.$user->name.' se ha editado exitosamente', 'success');
+        flash('El usuario "'.$user->name.'" se ha editado exitosamente', 'success');
         return redirect('admin/users');
         //dd($user);
 
@@ -120,7 +120,7 @@ class UsersController extends Controller
         $user=User::find($id);
         User::destroy($id);
 
-        flash('Se ha eliminado el usuario '.$user->name.' exitosamente', 'warning');
+        flash('Se ha eliminado el usuario "'.$user->name.'" exitosamente', 'warning');
         return redirect('admin/users');
     }
 }

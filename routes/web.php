@@ -17,7 +17,8 @@ Route::get('/',['as' => 'admin.welcome', function () {
 
 
 Route::group(['prefix' =>'admin', 'middleware' => 'auth'],function(){
-
+//Route::group(['prefix' =>'admin'],function(){
+	
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy',[
 		'uses' => 'UsersController@destroy',
@@ -30,21 +31,13 @@ Route::group(['prefix' =>'admin', 'middleware' => 'auth'],function(){
 		'as' => 'admin.categories.destroy'
 		]);
 
-/*	Route::get('auth',[
-	'uses' => 'Auth\LoginController@login',
-	'as' => 'admin.auth.login'
-	]);
+	Route::resource('tags', 'TagsController');
+	Route::get('tags/{id}/destroy',[
+		'uses' => 'TagsController@destroy',
+		'as' => 'admin.tags.destroy'
+		]);
 
-	Route::post('auth',[
-	'uses' => 'Auth\LoginController@postlogin',
-	'as' => 'admin.auth.postlogin'
-	]);
 
-	Route::get('desauth',[
-	'uses' => 'Auth\LoginController@logout',
-	'as' => 'admin.desauth.logout'
-	]);
-	*/
 });
 
 //EL FORMATO DEL 'as' TIENE LA RUTA DEL ARCHIVO QUE SE VA A EJECUTAR
