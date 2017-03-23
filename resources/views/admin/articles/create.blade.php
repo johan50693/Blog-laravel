@@ -13,17 +13,17 @@
 
 		<div class="form-group">
 				{!! Form::label('category_id', 'Categoria') !!}
-				{!! Form::select('category_id', $categories,null, ['class' => 'form-control', 'placeholder' => 'Título del artículo', 'required']) !!}
+				{!! Form::select('category_id', $categories,null, ['class' => 'form-control', 'placeholder' => 'Categoria del artículo', 'required']) !!}
 		</div>
 	
 		<div class="form-group">
-			{!! Form::label('content', 'Contenido') !!}
-			{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+			{!! Form::label('contenido', 'Contenido') !!}
+			{!! Form::textarea('contenido', null, ['class' => 'form-control']) !!}
 		</div>
 
 		<div class="form-group">
 				{!! Form::label('tags', 'Tag') !!}
-				{!! Form::select('tags', $tags,null, ['class' => 'form-control', 'multiple', 'required']) !!}
+				{!! Form::select('tags[]', $tags,null, ['class' => 'form-control', 'multiple', 'required']) !!}
 		</div>
 
 		<div class="form-group">

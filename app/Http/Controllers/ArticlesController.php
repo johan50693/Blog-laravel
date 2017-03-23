@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Tag;
+use App\Article;
+use App\Image;
+use Laracasts\Flash\Flash;
+
 
 class ArticlesController extends Controller
 {
@@ -15,7 +19,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('admin.articles.index');
     }
 
     /**
@@ -42,11 +47,36 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         //
-        $file=$request->file('image');
     
-        $name= 'miblog_'. time().'.'.$request->image->extension();
-        $path=public_path()."/images/articles";
-        $file->move($path,$name);
+
+        if ($request->file('image')) {
+            $file=$request->file('image');
+    
+            $name= 'miblog_'. time().'.'.$request->image->extension();
+            $path=public_path()."/images/articles";
+            $file->move($path,$name);
+        }
+
+        $article= new Article();
+        $article->title=$request->title;
+        $article->contenido=$request->contenido;
+        $article->category_id=$request->category_id;
+        $article->user_id=\Auth::user()->id;
+
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+
+        $image= new Image();
+        $image->name=$name;
+        $image->article()->associate($article);
+
+        $image->save();
+
+        flash('Se ha creado el articulo '. $article->title. ' de forma exitosa', 'success');
+
+        return redirect()->route('articles.index');
+        
     }
 
     /**
