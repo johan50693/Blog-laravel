@@ -7,6 +7,22 @@
 
 	<a href="{{ route('tags.create') }}" class="btn btn-info center-block">Crear Tag</a>
 
+	<!-- Buscador de Tags-->
+
+	{!! Form::open(['route' => 'tags.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+
+		<div class="input-group">
+		   
+			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar' , 'aria-describedby'=> 'search']) !!}
+			 <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+
+		</div>
+	{!! Form::close() !!}
+
+	<!-- Fin del Buscador de Tags-->
+			
+	
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
